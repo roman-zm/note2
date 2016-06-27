@@ -19,12 +19,13 @@ public:
 
 private slots:
     void save();
-    void saveAs();
+    void saveAs(bool);
     void open();
     void about();
     void findWindow();
     void findInText();
     void setFont();
+    void createFile();
 
 private:
     Ui::Notepad *ui;

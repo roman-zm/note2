@@ -17,5 +17,6 @@ int main(int argc, char *argv[])
     cent.setY(cent.y()-note.height()/2);
     note.move(cent);
 
+
     return a.exec();
 }
