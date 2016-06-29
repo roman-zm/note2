@@ -245,6 +245,9 @@ p, li { white-space: pre-wrap; }
    <property name="text">
     <string>Find next</string>
    </property>
+   <property name="shortcut">
+    <string>F3</string>
+   </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

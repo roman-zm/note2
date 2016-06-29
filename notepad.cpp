@@ -112,8 +112,7 @@ void Notepad::findWindow(){
 void Notepad::findInText(){
     bool findDown;
     QString searchString = fWind.getSearchString();
-    /*if(!findd)*/ findDown = fWind.getSearchDirection();
-    //else findDown =1;
+    findDown = fWind.getSearchDirection();
 
     if(findDown)
         ui->textEdit->find(searchString);

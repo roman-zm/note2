@@ -26,3 +26,5 @@ HEADERS  += notepad.h \
 FORMS    += notepad.ui \
     aboutwidget.ui \
     findwidget.ui
+
+TRANSLATIONS += ru.ts
