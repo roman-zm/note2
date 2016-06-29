@@ -9,6 +9,7 @@
 #include <QMessageBox>
 #include <QFont>
 #include <QFontDialog>
+#include <QPalette>
 
 Notepad::Notepad(QWidget *parent) :
     QMainWindow(parent),
@@ -26,8 +27,25 @@ Notepad::Notepad(QWidget *parent) :
     connect(ui->actionFind, SIGNAL(triggered(bool)), this, SLOT(findWindow()));
     connect(ui->actionFont, SIGNAL(triggered(bool)), this, SLOT(setFont()));
     connect(&fWind, SIGNAL(findSignal()), this, SLOT(findInText()));
+    connect(ui->actionFind_next, SIGNAL(triggered(bool)), this, SLOT(findInText()));
+
     connect(ui->actionCreate, SIGNAL(triggered(bool)), this, SLOT(createFile()));
+
+    connect(ui->actionCut, SIGNAL(triggered(bool)), ui->textEdit, SLOT(cut()));
+    connect(ui->actionCopy, SIGNAL(triggered(bool)), ui->textEdit, SLOT(copy()));
+    connect(ui->actionSelect_all, SIGNAL(triggered(bool)), ui->textEdit, SLOT(selectAll()));
+    connect(ui->actionPaste, SIGNAL(triggered(bool)), ui->textEdit, SLOT(paste()));
+
+    connect(ui->actionLineWrap, SIGNAL(triggered(bool)), this, SLOT(setLineWarp(bool)));
+
     ui->textEdit->setLineWrapMode(QTextEdit::NoWrap);
+
+
+    pal = ui->textEdit->palette();
+    QColor highlight = pal.color(QPalette::Active, QPalette::Highlight);
+    pal.setColor(QPalette::Inactive, QPalette::Highlight, highlight);
+    pal.setColor(QPalette::Inactive, QPalette::HighlightedText, Qt::white);
+    ui->textEdit->setPalette(pal);
 }
 
 Notepad::~Notepad(){
@@ -92,9 +110,15 @@ void Notepad::findWindow(){
 }
 
 void Notepad::findInText(){
-    this->focusWidget();
+    bool findDown;
     QString searchString = fWind.getSearchString();
-    ui->textEdit->find(searchString, QTextDocument::FindWholeWords);
+    /*if(!findd)*/ findDown = fWind.getSearchDirection();
+    //else findDown =1;
+
+    if(findDown)
+        ui->textEdit->find(searchString);
+    else
+        ui->textEdit->find(searchString, QTextDocument::FindBackward );
 }
 
 void Notepad::setFont(){
@@ -105,4 +129,12 @@ void Notepad::createFile(){
     if(ui->textEdit->toPlainText()!="") this->save();
     openedFile="";
     ui->textEdit->clear();
+}
+
+void Notepad::setLineWarp(bool toggld){
+    if(!toggld){
+        ui->textEdit->setLineWrapMode(QTextEdit::NoWrap);
+    } else {
+        ui->textEdit->setLineWrapMode(QTextEdit::WidgetWidth);
+    }
 }

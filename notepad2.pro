@@ -11,6 +11,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = notepad2
 TEMPLATE = app
 
+#QMAKE_LFLAGS_RELEASE += -static -static-libgcc
+
 
 SOURCES += main.cpp\
         notepad.cpp \

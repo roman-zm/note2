@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QString>
+#include <QPalette>
 #include "findwidget.h"
 
 namespace Ui {
@@ -26,11 +27,13 @@ private slots:
     void findInText();
     void setFont();
     void createFile();
+    void setLineWarp(bool);
 
 private:
     Ui::Notepad *ui;
     QString openedFile;
     findWidget fWind;
+    QPalette pal;
 };
 
 #endif // NOTEPAD_H
