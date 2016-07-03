@@ -19,7 +19,7 @@ findWidget::findWidget(QWidget *parent) :
     connect(ui->replaceAllButton, SIGNAL(clicked(bool)), this, SIGNAL(replaceAllSignal()));
     setWindowFlags(Qt::CustomizeWindowHint |Qt::WindowCloseButtonHint| Qt::WindowStaysOnTopHint);
     setModal(false);
-    ui->pushButton->setFocus();
+    ui->lineEdit->setFocus();
 }
 
 findWidget::~findWidget(){
