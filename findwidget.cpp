@@ -9,30 +9,57 @@ findWidget::findWidget(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowTitle(tr("Find"));
-    connect(ui->pushButton, SIGNAL(clicked(bool)), this, SLOT(setSearchString()));
-    connect(ui->pushButton, SIGNAL(clicked(bool)), this, SLOT(setSearchDirection()));
-    connect(ui->pushButton, SIGNAL(clicked(bool)), this, SIGNAL(findSignal()));
-    setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint);
-    setWindowModality(Qt::NonModal);
+    setSearchDirection(1);
+    connect(ui->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(setSearchString(QString)));
+    connect(ui->replaceLine, SIGNAL(textChanged(QString)), this, SLOT(setReplaceString(QString)));
+    connect(ui->radioButton_2, SIGNAL(toggled(bool)), this, SLOT(setSearchDirection(bool)));
 
+    connect(ui->pushButton, SIGNAL(clicked(bool)), this, SIGNAL(findSignal()));
+    connect(ui->replaceButton, SIGNAL(clicked(bool)), this, SIGNAL(replaceSignal()));
+    connect(ui->replaceAllButton, SIGNAL(clicked(bool)), this, SIGNAL(replaceAllSignal()));
+    setWindowFlags(Qt::CustomizeWindowHint |Qt::WindowCloseButtonHint);
+    setModal(false);
+    ui->pushButton->setFocus();
 }
 
 findWidget::~findWidget(){
     delete ui;
 }
 
-void findWidget::setSearchString(){
-    SearchStr = ui->lineEdit->text();
+void findWidget::setSearchString(QString srch){
+    SearchStr = srch;
 }
 
 QString findWidget::getSearchString(){
     return SearchStr;
 }
 
-void findWidget::setSearchDirection(){
-    isdown=ui->radioButton_2->isChecked();
+void findWidget::setReplaceString(QString rplc){
+    replaceStr = rplc;
+}
+
+QString findWidget::getReplaceString(){
+    return replaceStr;
+}
+
+void findWidget::setSearchDirection(bool down){
+    isdown=down;
 }
 
 bool findWidget::getSearchDirection(){
     return isdown;
+}
+
+void findWidget::setReplace(bool replace){
+    if(replace)
+        this->resize(340,194);
+    else
+        this->resize(340, 115);
+    ui->replaceAllButton->setEnabled(replace);
+    ui->replaceAllButton->setVisible(replace);
+    ui->replaceButton->setEnabled(replace);
+    ui->replaceButton->setVisible(replace);
+    ui->replaceLine->setEnabled(replace);
+    ui->replaceLine->setVisible(replace);
+
 }

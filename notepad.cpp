@@ -10,6 +10,7 @@
 #include <QFont>
 #include <QFontDialog>
 #include <QPalette>
+#include <QTextCursor>
 
 Notepad::Notepad(QWidget *parent) :
     QMainWindow(parent),
@@ -17,6 +18,7 @@ Notepad::Notepad(QWidget *parent) :
 {
     ui->setupUi(this);
     openedFile="";
+    cursor = new QTextCursor(ui->textEdit->textCursor());
     connect(ui->actionExit, SIGNAL(triggered(bool)), qApp, SLOT(quit()));
     connect(ui->actionOpen, SIGNAL(triggered(bool)), this, SLOT(open()));
     connect(ui->actionSave_as, SIGNAL(triggered(bool)), this, SLOT(saveAs(bool)));
@@ -24,9 +26,15 @@ Notepad::Notepad(QWidget *parent) :
     connect(ui->actionUndo, SIGNAL(triggered(bool)), ui->textEdit, SLOT(undo()));
     connect(ui->actionRedo, SIGNAL(triggered(bool)), ui->textEdit, SLOT(redo()));
     connect(ui->actionAbout, SIGNAL(triggered(bool)), this, SLOT(about()));
+
+    connect(ui->actionReplace, SIGNAL(triggered(bool)), this, SLOT(replaceWindow()));
     connect(ui->actionFind, SIGNAL(triggered(bool)), this, SLOT(findWindow()));
     connect(ui->actionFont, SIGNAL(triggered(bool)), this, SLOT(setFont()));
+
     connect(&fWind, SIGNAL(findSignal()), this, SLOT(findInText()));
+    connect(&fWind, SIGNAL(replaceSignal()), this, SLOT(replaceInText()));
+    connect(&fWind, SIGNAL(replaceAllSignal()), this, SLOT(replaceAll()));
+
     connect(ui->actionFind_next, SIGNAL(triggered(bool)), this, SLOT(findInText()));
 
     connect(ui->actionCreate, SIGNAL(triggered(bool)), this, SLOT(createFile()));
@@ -107,17 +115,39 @@ void Notepad::about(){
 
 void Notepad::findWindow(){
     fWind.show();
+    fWind.setReplace(false);
 }
 
-void Notepad::findInText(){
+void Notepad::replaceWindow(){
+    fWind.show();
+    fWind.setReplace(true);
+}
+
+bool Notepad::findInText(){
     bool findDown;
     QString searchString = fWind.getSearchString();
     findDown = fWind.getSearchDirection();
 
     if(findDown)
-        ui->textEdit->find(searchString);
+        return ui->textEdit->find(searchString);
     else
-        ui->textEdit->find(searchString, QTextDocument::FindBackward );
+        return ui->textEdit->find(searchString, QTextDocument::FindBackward );
+}
+
+void Notepad::replaceInText(){
+    QString rplcStr = fWind.getReplaceString();
+    QString srchStr = fWind.getSearchString();
+    if(rplcStr==srchStr) return;
+    if(ui->textEdit->textCursor().selectedText()==srchStr)
+        ui->textEdit->insertPlainText(rplcStr);
+    else
+        findInText();
+}
+
+void Notepad::replaceAll(){
+    while(findInText()) replaceInText();
+    QMessageBox::information(this, tr("Replace All"),"Ok",1);
+    fWind.close();
 }
 
 void Notepad::setFont(){
@@ -125,7 +155,7 @@ void Notepad::setFont(){
 }
 
 void Notepad::createFile(){
-    if(ui->textEdit->toPlainText()!="") this->save();
+    if(openedFile=="") this->save();
     openedFile="";
     ui->textEdit->clear();
 }

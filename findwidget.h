@@ -15,19 +15,26 @@ public:
     explicit findWidget(QWidget *parent = 0 );
     ~findWidget();
     QString getSearchString();
+    QString getReplaceString();
     bool getSearchDirection();
+    void setReplace(bool);
 
 signals:
     void findSignal();
+    void replaceSignal();
+    void replaceAllSignal();
 
 private slots:
-    void setSearchString();
-    void setSearchDirection();
+    void setSearchString(QString);
+    void setSearchDirection(bool);
+    void setReplaceString(QString);
 
 private:
     Ui::findWidget *ui;
     QString SearchStr;
     bool isdown;
+    bool isreplace;
+    QString replaceStr;
 };
 
 #endif // FINDWIDGET_H
