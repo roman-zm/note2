@@ -17,7 +17,7 @@ findWidget::findWidget(QWidget *parent) :
     connect(ui->pushButton, SIGNAL(clicked(bool)), this, SIGNAL(findSignal()));
     connect(ui->replaceButton, SIGNAL(clicked(bool)), this, SIGNAL(replaceSignal()));
     connect(ui->replaceAllButton, SIGNAL(clicked(bool)), this, SIGNAL(replaceAllSignal()));
-    setWindowFlags(Qt::CustomizeWindowHint |Qt::WindowCloseButtonHint);
+    setWindowFlags(Qt::CustomizeWindowHint |Qt::WindowCloseButtonHint| Qt::WindowStaysOnTopHint);
     setModal(false);
     ui->pushButton->setFocus();
 }
@@ -52,9 +52,9 @@ bool findWidget::getSearchDirection(){
 
 void findWidget::setReplace(bool replace){
     if(replace)
-        this->resize(340,194);
+        this->setFixedSize(340,194);
     else
-        this->resize(340, 115);
+        this->setFixedSize(340, 115);
     ui->replaceAllButton->setEnabled(replace);
     ui->replaceAllButton->setVisible(replace);
     ui->replaceButton->setEnabled(replace);

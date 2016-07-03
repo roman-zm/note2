@@ -127,6 +127,7 @@ bool Notepad::findInText(){
     bool findDown;
     QString searchString = fWind.getSearchString();
     findDown = fWind.getSearchDirection();
+    if(replaceAllFlag) findDown=true;
 
     if(findDown)
         return ui->textEdit->find(searchString);
@@ -137,17 +138,21 @@ bool Notepad::findInText(){
 void Notepad::replaceInText(){
     QString rplcStr = fWind.getReplaceString();
     QString srchStr = fWind.getSearchString();
+    QString selStr = ui->textEdit->textCursor().selectedText();
     if(rplcStr==srchStr) return;
-    if(ui->textEdit->textCursor().selectedText()==srchStr)
+    if(selStr.toLower()==srchStr.toLower())
         ui->textEdit->insertPlainText(rplcStr);
-    else
-        findInText();
+    if(!replaceAllFlag) findInText();
 }
 
 void Notepad::replaceAll(){
-    while(findInText()) replaceInText();
-    QMessageBox::information(this, tr("Replace All"),"Ok",1);
-    fWind.close();
+    ui->textEdit->textCursor().atStart();
+    replaceAllFlag=true;
+    while(true){
+        replaceInText();
+        if(findInText()==0) break;
+    }
+    replaceAllFlag=false;
 }
 
 void Notepad::setFont(){

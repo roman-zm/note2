@@ -39,6 +39,7 @@ private:
     findWidget fWind;
     QPalette pal;
     QTextCursor *cursor;
+    bool replaceAllFlag = false;
 };
 
 #endif // NOTEPAD_H
