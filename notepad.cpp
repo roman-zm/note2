@@ -10,7 +10,8 @@
 #include <QFont>
 #include <QFontDialog>
 #include <QPalette>
-#include <QTextCursor>
+#include <QtPrintSupport/QPrinter>
+#include <QtPrintSupport/QPrintDialog>
 
 Notepad::Notepad(QWidget *parent) :
     QMainWindow(parent),
@@ -56,8 +57,14 @@ Notepad::Notepad(QWidget *parent) :
     ui->textEdit->setPalette(pal);
 }
 
+
+
 Notepad::~Notepad(){
     delete ui;
+}
+
+void Notepad::printDocument(){
+
 }
 
 void Notepad::save(){

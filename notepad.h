@@ -33,6 +33,8 @@ private slots:
     void setLineWarp(bool);
     void replaceAll();
 
+    void printDocument();
+
 private:
     Ui::Notepad *ui;
     QString openedFile;
@@ -40,6 +42,7 @@ private:
     QPalette pal;
     QTextCursor *cursor;
     bool replaceAllFlag = false;
+
 };
 
 #endif // NOTEPAD_H
