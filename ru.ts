@@ -9,202 +9,201 @@
         <translation>Блокнот</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="61"/>
+        <location filename="notepad.ui" line="70"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Cantarell&apos;; font-size:14pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;MS Shell Dlg 2&apos;;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <oldsource>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:14pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</oldsource>
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="91"/>
+        <location filename="notepad.ui" line="100"/>
         <source>File</source>
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="102"/>
-        <location filename="notepad.ui" line="162"/>
+        <location filename="notepad.ui" line="114"/>
+        <location filename="notepad.ui" line="174"/>
         <source>About</source>
         <translation>Справка</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="108"/>
+        <location filename="notepad.ui" line="120"/>
         <source>Edit</source>
         <translation>Правка</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="124"/>
+        <location filename="notepad.ui" line="136"/>
         <source>Format</source>
         <translation>Формат</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="136"/>
+        <location filename="notepad.ui" line="148"/>
         <source>Open</source>
         <translation>Открыть</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="139"/>
+        <location filename="notepad.ui" line="151"/>
         <source>Ctrl+O</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="144"/>
+        <location filename="notepad.ui" line="156"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="147"/>
+        <location filename="notepad.ui" line="159"/>
         <source>Ctrl+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="152"/>
+        <location filename="notepad.ui" line="164"/>
         <source>Save as...</source>
         <translation>Сохранить как...</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="157"/>
+        <location filename="notepad.ui" line="169"/>
         <source>Exit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="165"/>
+        <location filename="notepad.ui" line="177"/>
         <source>F1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="170"/>
+        <location filename="notepad.ui" line="182"/>
         <source>Undo</source>
         <translation>Отменить</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="173"/>
+        <location filename="notepad.ui" line="185"/>
         <source>Ctrl+Z</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="178"/>
+        <location filename="notepad.ui" line="190"/>
         <source>Redo</source>
         <translation>Повторить</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="181"/>
+        <location filename="notepad.ui" line="193"/>
         <source>Ctrl+Y</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="186"/>
+        <location filename="notepad.ui" line="198"/>
         <source>Find</source>
         <translation>Найти</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="189"/>
+        <location filename="notepad.ui" line="201"/>
         <source>Ctrl+F</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="194"/>
+        <location filename="notepad.ui" line="206"/>
         <source>Font</source>
         <translation>Шрифт</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="199"/>
+        <location filename="notepad.ui" line="211"/>
         <source>Create</source>
         <translation>Создать</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="202"/>
+        <location filename="notepad.ui" line="214"/>
         <source>Ctrl+N</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="210"/>
+        <location filename="notepad.ui" line="222"/>
         <source>LineWrap</source>
         <translation>Перенос строки</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="215"/>
+        <location filename="notepad.ui" line="227"/>
         <source>Select all</source>
         <translation>Выбрать всё</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="218"/>
+        <location filename="notepad.ui" line="230"/>
         <source>Ctrl+A</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="223"/>
+        <location filename="notepad.ui" line="235"/>
         <source>Cut</source>
         <translation>Вырезать</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="226"/>
+        <location filename="notepad.ui" line="238"/>
         <source>Ctrl+X</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="231"/>
+        <location filename="notepad.ui" line="243"/>
         <source>Copy</source>
         <translation>Копировать</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="234"/>
+        <location filename="notepad.ui" line="246"/>
         <source>Ctrl+C</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="239"/>
+        <location filename="notepad.ui" line="251"/>
         <source>Paste</source>
         <translation>Вставить</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="242"/>
+        <location filename="notepad.ui" line="254"/>
         <source>Ctrl+V</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="247"/>
+        <location filename="notepad.ui" line="259"/>
         <source>Find next</source>
         <translation>Найти далее</translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="250"/>
+        <location filename="notepad.ui" line="262"/>
         <source>F3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="notepad.ui" line="255"/>
+        <location filename="notepad.ui" line="267"/>
         <source>Replace</source>
         <translation>Заменить</translation>
     </message>
     <message>
-        <location filename="notepad.cpp" line="67"/>
-        <location filename="notepad.cpp" line="83"/>
-        <location filename="notepad.cpp" line="100"/>
+        <location filename="notepad.ui" line="272"/>
+        <source>Print...</source>
+        <translation>Печать...</translation>
+    </message>
+    <message>
+        <location filename="notepad.cpp" line="86"/>
+        <location filename="notepad.cpp" line="102"/>
+        <location filename="notepad.cpp" line="119"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="notepad.cpp" line="67"/>
-        <location filename="notepad.cpp" line="83"/>
+        <location filename="notepad.cpp" line="86"/>
+        <location filename="notepad.cpp" line="102"/>
         <source>Can not write file</source>
         <translation>Невозможно записать файл</translation>
     </message>
     <message>
-        <location filename="notepad.cpp" line="100"/>
+        <location filename="notepad.cpp" line="119"/>
         <source>Can notopen file</source>
         <translation>Невозможно открыть файл</translation>
     </message>
     <message>
-        <location filename="notepad.cpp" line="149"/>
         <source>Replace All</source>
-        <translation>Заменить всё</translation>
+        <translation type="vanished">Заменить всё</translation>
     </message>
 </context>
 <context>

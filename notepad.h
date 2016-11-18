@@ -32,6 +32,7 @@ private slots:
     void createFile();
     void setLineWarp(bool);
     void replaceAll();
+    void printDocument();
 
 private:
     Ui::Notepad *ui;

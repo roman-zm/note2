@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 
     QTranslator *translator = new QTranslator;
     QString fileTr = QApplication::applicationDirPath()+QDir::separator()+QLocale::system().name();
-    if(!translator->load(fileTr))
+    if(!translator->load(fileTr, QLibraryInfo::location(QLibraryInfo::TranslationsPath))) //QLibraryInfo - Для локали встроенных виджетов
         qApp->exit();
     else
         qApp->installTranslator(translator);

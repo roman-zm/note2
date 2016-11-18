@@ -11,6 +11,11 @@
 #include <QFontDialog>
 #include <QPalette>
 #include <QTextCursor>
+#include <QtPrintSupport/QPrinter>
+#include <QtPrintSupport/QPrintDialog>
+#include <QPainter>
+#include <QtPrintSupport/QAbstractPrintDialog>
+#include <QtPrintSupport/QtPrintSupport>
 
 Notepad::Notepad(QWidget *parent) :
     QMainWindow(parent),
@@ -26,6 +31,8 @@ Notepad::Notepad(QWidget *parent) :
     connect(ui->actionUndo, SIGNAL(triggered(bool)), ui->textEdit, SLOT(undo()));
     connect(ui->actionRedo, SIGNAL(triggered(bool)), ui->textEdit, SLOT(redo()));
     connect(ui->actionAbout, SIGNAL(triggered(bool)), this, SLOT(about()));
+
+    connect(ui->actionPrint, SIGNAL(triggered(bool)), this, SLOT(printDocument()));
 
     connect(ui->actionReplace, SIGNAL(triggered(bool)), this, SLOT(replaceWindow()));
     connect(ui->actionFind, SIGNAL(triggered(bool)), this, SLOT(findWindow()));
@@ -58,6 +65,18 @@ Notepad::Notepad(QWidget *parent) :
 
 Notepad::~Notepad(){
     delete ui;
+}
+
+void Notepad::printDocument(){
+    QPrinter printer;
+    QPrintDialog *printDlg = new QPrintDialog(&printer);
+    printDlg->setWindowTitle("Print document");
+
+    QPainter painter;
+    painter.begin(&printer);
+
+    painter.drawText(100, 100, 500, 500, Qt::AlignLeft|Qt::AlignTop, ui->textEdit->toPlainText());
+    painter.end();
 }
 
 void Notepad::save(){
